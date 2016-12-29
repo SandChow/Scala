@@ -40,13 +40,14 @@ object Lists {
    * @return The largest element in `xs`
    * @throws java.util.NoSuchElementException if `xs` is an empty list
    */
-    def max(xs: List[Int]): Int = {
+    def max(xs: List[Int]) = {
       if (xs.isEmpty) throw new java.util.NoSuchElementException()
-      def maxAux(rest: List[Int], curMax: Int): Int = {
+
+      def maxAux(rest: List[Int], curMax: Int): Int =
         if (rest.isEmpty) curMax
         else if (curMax > rest.head) maxAux(rest.tail, curMax)
         else maxAux(rest.tail, rest.head)
-      }
+
       maxAux(xs.tail, xs.head)
     }
 
